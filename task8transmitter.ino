@@ -30,10 +30,10 @@ uint8_t permute(uint8_t x) {
 }
 
 uint8_t encryptByte(uint8_t p) {
-  // 1 — XOR with key
+  //XOR with key
   uint8_t x = p ^ SECRET_KEY;
 
-  // 2 — S-box substitution
+  //S-box substitution
   uint8_t hi = (x >> 4) & 0x0F;
   uint8_t lo =  x       & 0x0F;
 
@@ -42,7 +42,7 @@ uint8_t encryptByte(uint8_t p) {
 
   uint8_t s = (shi << 4) | slo;
 
-  //3 — bit permutation layer
+  //bit permutation layer
   return permute(s);
 }
 
